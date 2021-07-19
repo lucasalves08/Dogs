@@ -11,7 +11,7 @@
         <!--Lista de Cachorros-->
         <scene sceneID="QoI-rY-sOl">
             <objects>
-                <tableViewController id="E59-43-sMa" customClass="DogTableViewController" customModule="Dogs" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DogTable" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E59-43-sMa" customClass="DogTableViewController" customModule="Dogs" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qtu-ap-049">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +44,7 @@
         <!--Breed Details View Controller-->
         <scene sceneID="VLd-nD-Ppz">
             <objects>
-                <viewController id="h8c-ow-9JZ" customClass="BreedDetailsViewController" customModule="Dogs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BreedDetails" id="h8c-ow-9JZ" customClass="BreedDetailsViewController" customModule="Dogs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="19g-r8-4sm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,7 +89,7 @@
         <!--Sub Breed Details View Controller-->
         <scene sceneID="d42-KD-aU8">
             <objects>
-                <viewController id="LfM-Ai-BFQ" customClass="SubBreedDetailsViewController" customModule="Dogs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SubBreedDetails" id="LfM-Ai-BFQ" customClass="SubBreedDetailsViewController" customModule="Dogs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Pp-vz-zhJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,7 +149,7 @@
         <!--Navigation Controller-->
         <scene sceneID="7Ld-iG-0oO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7TW-Ki-RMT" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7TW-Ki-RMT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JQd-q5-xYY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

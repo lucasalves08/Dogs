@@ -9,6 +9,7 @@ import UIKit
 
 class DogTableViewController: UITableViewController {
     var breedList: [Breed] = []
+    var dogService: DogServiceProtocol = DogService.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +17,7 @@ class DogTableViewController: UITableViewController {
     }
 
     func loadBreedList() {
-        DogApi.getBreedsList { breeds, error in
+        dogService.getBreedsList { breeds, error in
             DispatchQueue.main.sync {
                 self.breedList = breeds ?? []
                 self.sortBreedByName()

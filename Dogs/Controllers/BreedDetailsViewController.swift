@@ -13,7 +13,7 @@ class BreedDetailsViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     var breed: Breed?
-    var hasSub: Bool = false;
+    var dogService: DogServiceProtocol = DogService.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +30,15 @@ class BreedDetailsViewController: UIViewController {
             return
         }
         activityIndicator.startAnimating()
-        DogApi.getRandomImage(breedName: breedName) { breedImage, error in
+        dogService.getRandomImage(breedName: breedName) { [weak self] breedImage, error in
             guard let image = breedImage,
                   let url = URL(string: image.urlString) else {
                 return
             }
-            DogApi.getImageFile(url: url) { imageData, error in
+            self?.dogService.getImageFile(url: url) { [weak self] imageData, error in
                 DispatchQueue.main.sync {
-                    self.activityIndicator.stopAnimating()
-                    self.breedImageView.image = imageData
+                    self?.activityIndicator.stopAnimating()
+                    self?.breedImageView.image = imageData
                 }
             }
         }

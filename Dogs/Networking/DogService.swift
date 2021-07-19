@@ -1,5 +1,5 @@
 //
-//  DogApi.swift
+//  DogService.swift
 //  Dogs
 //
 //  Created by Lucas Alves Dos Santos on 18/07/21.
@@ -8,7 +8,10 @@
 import Foundation
 import UIKit
 
-class DogApi {
+class DogService: DogServiceProtocol {
+    static let sharedInstance = DogService()
+    var urlSession = URLSession.shared
+
     enum Endpoint {
         case listAllBreeds
         case randomImageForBreed(String)
@@ -31,8 +34,8 @@ class DogApi {
     }
 
     //MARK: - Pega as racas
-    class func getBreedsList(completionHandler: @escaping([Breed]?, Error?) -> Void) {
-        let task = URLSession.shared.dataTask(with: Endpoint.listAllBreeds.url) {
+    func getBreedsList(completionHandler: @escaping([Breed]?, Error?) -> Void) {
+        let task = urlSession.dataTask(with: Endpoint.listAllBreeds.url) {
             (data, reponse, error) in
             guard let data = data else {
                 completionHandler(nil, error)
@@ -48,9 +51,9 @@ class DogApi {
         task.resume()
     }
     //MARK: - Pega as fotos aleatorias de uma raca
-    class func getRandomImage(breedName: String, completionHandler: @escaping (DogImageResponse?, Error?) -> Void){
-        let randomImageEndPoint = DogApi.Endpoint.randomImageForBreed(breedName).url
-        let task = URLSession.shared.dataTask(with: randomImageEndPoint) {
+    func getRandomImage(breedName: String, completionHandler: @escaping (DogImageResponse?, Error?) -> Void) {
+        let randomImageEndPoint = Endpoint.randomImageForBreed(breedName).url
+        let task = urlSession.dataTask(with: randomImageEndPoint) {
             (data, response, error) in
             guard let data = data else {
                 completionHandler(nil, error)
@@ -64,9 +67,9 @@ class DogApi {
     }
 
     //MARK: - Pega as fotos aleatorias de uma subraca
-    class func getRandomImageSubBreed(breed: String,subBreed:String, completionHandler: @escaping (DogImageResponse?,Error?) -> Void){
-        let randomImageEndPoint = DogApi.Endpoint.randomImageForSuBreed(breed, subBreed).url
-        let task = URLSession.shared.dataTask(with: randomImageEndPoint) {
+    func getRandomImageSubBreed(breed: String,subBreed:String, completionHandler: @escaping (DogImageResponse?,Error?) -> Void) {
+        let randomImageEndPoint = Endpoint.randomImageForSuBreed(breed, subBreed).url
+        let task = urlSession.dataTask(with: randomImageEndPoint) {
             (data, response, error) in
             guard let data = data else {
                 completionHandler(nil, error)
@@ -79,8 +82,8 @@ class DogApi {
         task.resume()
     }
 
-    class func getImageFile(url: URL, completionHandler: @escaping (UIImage?, Error?) -> Void) {
-        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) in
+    func getImageFile(url: URL, completionHandler: @escaping (UIImage?, Error?) -> Void) {
+        let task = urlSession.dataTask(with: url, completionHandler: { (data, _, error) in
             guard let data = data else {
                 completionHandler(nil, error)
                 return
@@ -90,4 +93,11 @@ class DogApi {
         })
         task.resume()
     }
+}
+
+protocol DogServiceProtocol {
+    func getBreedsList(completionHandler: @escaping([Breed]?, Error?) -> Void)
+    func getRandomImage(breedName: String, completionHandler: @escaping (DogImageResponse?, Error?) -> Void)
+    func getRandomImageSubBreed(breed: String,subBreed:String, completionHandler: @escaping (DogImageResponse?,Error?) -> Void)
+    func getImageFile(url: URL, completionHandler: @escaping (UIImage?, Error?) -> Void)
 }

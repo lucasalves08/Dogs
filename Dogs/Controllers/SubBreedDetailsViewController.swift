@@ -14,6 +14,7 @@ class SubBreedDetailsViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     var breed: Breed?
+    var dogService: DogServiceProtocol = DogService.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +34,15 @@ class SubBreedDetailsViewController: UIViewController {
             return
         }
         activityIndicator.startAnimating()
-        DogApi.getRandomImageSubBreed(breed: breedName, subBreed: subBreedName) { dogImageResponse, error in
+        dogService.getRandomImageSubBreed(breed: breedName, subBreed: subBreedName) {  [weak self] dogImageResponse, error in
             guard let dogImage = dogImageResponse,
                   let url = URL(string: dogImage.urlString) else {
                 return
             }
-            DogApi.getImageFile(url: url) { imageData, error in
+            self?.dogService.getImageFile(url: url) { [weak self] imageData, error in
                 DispatchQueue.main.sync {
-                    self.activityIndicator.stopAnimating()
-                    self.imageView.image = imageData
+                    self?.activityIndicator.stopAnimating()
+                    self?.imageView.image = imageData
                 }
             }
         }
