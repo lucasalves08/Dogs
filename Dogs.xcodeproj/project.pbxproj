@@ -26,6 +26,8 @@
 		FE20CA2B26A52A6700B68B26 /* SubBreedDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20CA2A26A52A6700B68B26 /* SubBreedDetailsViewControllerTests.swift */; };
 		FE20CA2D26A52EE100B68B26 /* DogServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20CA2C26A52EE100B68B26 /* DogServiceTests.swift */; };
 		FE20CA2F26A5313C00B68B26 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20CA2E26A5313C00B68B26 /* MockURLProtocol.swift */; };
+		FE4DB0D826A6073F001A6FB3 /* ApiErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4DB0D726A6073F001A6FB3 /* ApiErrors.swift */; };
+		FE4DB0DC26A63E98001A6FB3 /* dogImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE4DB0DB26A63E98001A6FB3 /* dogImage.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		FE20CA2A26A52A6700B68B26 /* SubBreedDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubBreedDetailsViewControllerTests.swift; sourceTree = "<group>"; };
 		FE20CA2C26A52EE100B68B26 /* DogServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogServiceTests.swift; sourceTree = "<group>"; };
 		FE20CA2E26A5313C00B68B26 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		FE4DB0D726A6073F001A6FB3 /* ApiErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrors.swift; sourceTree = "<group>"; };
+		FE4DB0DB26A63E98001A6FB3 /* dogImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dogImage.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 		FE20C9F826A517F500B68B26 /* DogsTests */ = {
 			isa = PBXGroup;
 			children = (
+				FE4DB0DB26A63E98001A6FB3 /* dogImage.jpg */,
 				FE20C9FB26A517F500B68B26 /* Info.plist */,
 				FE20CA2426A51F4800B68B26 /* DogTableViewControllerTests.swift */,
 				FE20CA2626A5200300B68B26 /* ViewControllerBase.swift */,
@@ -189,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				FE20CA1A26A51AE900B68B26 /* DogService.swift */,
+				FE4DB0D726A6073F001A6FB3 /* ApiErrors.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -306,6 +312,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE4DB0DC26A63E98001A6FB3 /* dogImage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE20CA1526A51A1C00B68B26 /* DogTableViewController.swift in Sources */,
+				FE4DB0D826A6073F001A6FB3 /* ApiErrors.swift in Sources */,
 				FE20CA2326A51C9900B68B26 /* SubBreedDetailsViewController.swift in Sources */,
 				FE20C9E326A517F100B68B26 /* AppDelegate.swift in Sources */,
 				FE20CA1D26A51B6600B68B26 /* BreedListResponse.swift in Sources */,

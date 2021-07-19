@@ -10,6 +10,7 @@ import XCTest
 
 class BreedDetailsViewControllerTests: ViewControllerBase {
     var subject: BreedDetailsViewController!
+    let timeout: TimeInterval = 2.0
 
     override func setUp() {
         super.setUp()

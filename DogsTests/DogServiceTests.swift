@@ -41,7 +41,7 @@ class DogServiceTests: XCTestCase {
         let data = jsonString.data(using: .utf8)
         MockURLProtocol.requestHandler = { request in
             let response = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)!
-            return (response, data)
+            return (response, data, nil)
         }
 
         service.getBreedsList { breeds, error in
@@ -52,4 +52,23 @@ class DogServiceTests: XCTestCase {
         }
         waitForExpectations(timeout: timeout, handler: nil)
     }
+
+    func testGetBreedListFailure() throws {
+        let serviceExpectation = expectation(description: "Service response should be returned")
+        let url = DogService.Endpoint.listAllBreeds.url
+        let errorMessage = ["error": "dummy error"]
+        let expectedError = NSError(domain: "", code: 1, userInfo: errorMessage)
+
+        MockURLProtocol.requestHandler = { request in
+            let response = HTTPURLResponse(url: url, statusCode: 400, httpVersion: nil, headerFields: nil)!
+            return (response, Data(), expectedError)
+        }
+
+        service.getBreedsList { breeds, error in
+            XCTAssertNil(breeds)
+            XCTAssertNotNil(error)
+            serviceExpectation.fulfill()
+        }
+        waitForExpectations(timeout: timeout, handler: nil)
+    }    
 }

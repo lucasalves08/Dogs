@@ -34,58 +34,79 @@ class DogService: DogServiceProtocol {
     }
 
     //MARK: - Pega as racas
-    func getBreedsList(completionHandler: @escaping([Breed]?, Error?) -> Void) {
+    func getBreedsList(completionHandler: @escaping([Breed]?, NSError?) -> Void) {
         let task = urlSession.dataTask(with: Endpoint.listAllBreeds.url) {
-            (data, reponse, error) in
-            guard let data = data else {
-                completionHandler(nil, error)
+            (data, response, error) in
+            guard let data = data,
+                  let httpResponse = response as? HTTPURLResponse else {
+                completionHandler(nil, error as NSError?)
                 return
             }
-            let decoder = JSONDecoder()
-            let breedsReponse = try! decoder.decode(BreedListResponse.self, from: data)
-            let breeds = breedsReponse.breeds.map ({ response -> Breed in
-                return Breed(name: response.key, subBreeds: response.value)
-            })
-            completionHandler(breeds, nil)
+
+            switch httpResponse.statusCode {
+            case 200..<300:
+                let decoder = JSONDecoder()
+                let breedsReponse = try! decoder.decode(BreedListResponse.self, from: data)
+                let breeds = breedsReponse.breeds.map ({ response -> Breed in
+                    return Breed(name: response.key, subBreeds: response.value)
+                })
+                completionHandler(breeds, nil)
+            default:
+                completionHandler(nil, error as NSError?)
+            }
         }
         task.resume()
     }
     //MARK: - Pega as fotos aleatorias de uma raca
-    func getRandomImage(breedName: String, completionHandler: @escaping (DogImageResponse?, Error?) -> Void) {
+    func getRandomImage(breedName: String, completionHandler: @escaping (DogImageResponse?, NSError?) -> Void) {
         let randomImageEndPoint = Endpoint.randomImageForBreed(breedName).url
         let task = urlSession.dataTask(with: randomImageEndPoint) {
             (data, response, error) in
-            guard let data = data else {
-                completionHandler(nil, error)
+            guard let data = data,
+                  let httpResponse = response as? HTTPURLResponse else {
+                completionHandler(nil, error as NSError?)
                 return
             }
-            let decoder = JSONDecoder()
-            let imageData = try! decoder.decode(DogImageResponse.self, from: data)
-            completionHandler(imageData, nil)
+
+            switch httpResponse.statusCode {
+            case 200..<300:
+                let decoder = JSONDecoder()
+                let imageData = try! decoder.decode(DogImageResponse.self, from: data)
+                completionHandler(imageData, nil)
+            default:
+                completionHandler(nil, error as NSError?)
+            }
         }
         task.resume()
     }
 
     //MARK: - Pega as fotos aleatorias de uma subraca
-    func getRandomImageSubBreed(breed: String,subBreed:String, completionHandler: @escaping (DogImageResponse?,Error?) -> Void) {
+    func getRandomImageSubBreed(breed: String,subBreed:String, completionHandler: @escaping (DogImageResponse?, NSError?) -> Void) {
         let randomImageEndPoint = Endpoint.randomImageForSuBreed(breed, subBreed).url
         let task = urlSession.dataTask(with: randomImageEndPoint) {
             (data, response, error) in
-            guard let data = data else {
-                completionHandler(nil, error)
+            guard let data = data,
+                  let httpResponse = response as? HTTPURLResponse else {
+                completionHandler(nil, error as NSError?)
                 return
             }
-            let decoder = JSONDecoder()
-            let imageData = try! decoder.decode(DogImageResponse.self, from: data)
-            completionHandler(imageData, nil)
+
+            switch httpResponse.statusCode {
+            case 200..<300:
+                let decoder = JSONDecoder()
+                let imageData = try! decoder.decode(DogImageResponse.self, from: data)
+                completionHandler(imageData, nil)
+            default:
+                completionHandler(nil, error as NSError?)
+            }
         }
         task.resume()
     }
 
-    func getImageFile(url: URL, completionHandler: @escaping (UIImage?, Error?) -> Void) {
+    func getImageFile(url: URL, completionHandler: @escaping (UIImage?, NSError?) -> Void) {
         let task = urlSession.dataTask(with: url, completionHandler: { (data, _, error) in
             guard let data = data else {
-                completionHandler(nil, error)
+                completionHandler(nil, error as NSError?)
                 return
             }
             let downloadedImage = UIImage(data: data)
@@ -96,8 +117,8 @@ class DogService: DogServiceProtocol {
 }
 
 protocol DogServiceProtocol {
-    func getBreedsList(completionHandler: @escaping([Breed]?, Error?) -> Void)
-    func getRandomImage(breedName: String, completionHandler: @escaping (DogImageResponse?, Error?) -> Void)
-    func getRandomImageSubBreed(breed: String,subBreed:String, completionHandler: @escaping (DogImageResponse?,Error?) -> Void)
-    func getImageFile(url: URL, completionHandler: @escaping (UIImage?, Error?) -> Void)
+    func getBreedsList(completionHandler: @escaping([Breed]?, NSError?) -> Void)
+    func getRandomImage(breedName: String, completionHandler: @escaping (DogImageResponse?, NSError?) -> Void)
+    func getRandomImageSubBreed(breed: String,subBreed:String, completionHandler: @escaping (DogImageResponse?, NSError?) -> Void)
+    func getImageFile(url: URL, completionHandler: @escaping (UIImage?, NSError?) -> Void)
 }
