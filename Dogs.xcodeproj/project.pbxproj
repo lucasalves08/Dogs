@@ -9,12 +9,18 @@
 /* Begin PBXBuildFile section */
 		FE20C9E326A517F100B68B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20C9E226A517F100B68B26 /* AppDelegate.swift */; };
 		FE20C9E526A517F100B68B26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20C9E426A517F100B68B26 /* SceneDelegate.swift */; };
-		FE20C9E726A517F100B68B26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20C9E626A517F100B68B26 /* ViewController.swift */; };
 		FE20C9EA26A517F100B68B26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE20C9E826A517F100B68B26 /* Main.storyboard */; };
 		FE20C9EC26A517F400B68B26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE20C9EB26A517F400B68B26 /* Assets.xcassets */; };
 		FE20C9EF26A517F400B68B26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE20C9ED26A517F400B68B26 /* LaunchScreen.storyboard */; };
 		FE20C9FA26A517F500B68B26 /* DogsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20C9F926A517F500B68B26 /* DogsTests.swift */; };
 		FE20CA0526A517F500B68B26 /* DogsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20CA0426A517F500B68B26 /* DogsUITests.swift */; };
+		FE20CA1526A51A1C00B68B26 /* DogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20CA1426A51A1C00B68B26 /* DogTableViewController.swift */; };
+		FE20CA1826A51AA000B68B26 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20CA1726A51AA000B68B26 /* Breed.swift */; };
+		FE20CA1B26A51AE900B68B26 /* DogApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20CA1A26A51AE900B68B26 /* DogApi.swift */; };
+		FE20CA1D26A51B6600B68B26 /* BreedListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20CA1C26A51B6600B68B26 /* BreedListResponse.swift */; };
+		FE20CA1F26A51B7C00B68B26 /* DogImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20CA1E26A51B7C00B68B26 /* DogImageResponse.swift */; };
+		FE20CA2126A51C8200B68B26 /* BreedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20CA2026A51C8200B68B26 /* BreedDetailsViewController.swift */; };
+		FE20CA2326A51C9900B68B26 /* SubBreedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20CA2226A51C9900B68B26 /* SubBreedDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +44,6 @@
 		FE20C9DF26A517F100B68B26 /* Dogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE20C9E226A517F100B68B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE20C9E426A517F100B68B26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FE20C9E626A517F100B68B26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FE20C9E926A517F100B68B26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE20C9EB26A517F400B68B26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE20C9EE26A517F400B68B26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +54,13 @@
 		FE20CA0026A517F500B68B26 /* DogsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE20CA0426A517F500B68B26 /* DogsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsUITests.swift; sourceTree = "<group>"; };
 		FE20CA0626A517F500B68B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE20CA1426A51A1C00B68B26 /* DogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogTableViewController.swift; sourceTree = "<group>"; };
+		FE20CA1726A51AA000B68B26 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
+		FE20CA1A26A51AE900B68B26 /* DogApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogApi.swift; sourceTree = "<group>"; };
+		FE20CA1C26A51B6600B68B26 /* BreedListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListResponse.swift; sourceTree = "<group>"; };
+		FE20CA1E26A51B7C00B68B26 /* DogImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImageResponse.swift; sourceTree = "<group>"; };
+		FE20CA2026A51C8200B68B26 /* BreedDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailsViewController.swift; sourceTree = "<group>"; };
+		FE20CA2226A51C9900B68B26 /* SubBreedDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubBreedDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +111,12 @@
 		FE20C9E126A517F100B68B26 /* Dogs */ = {
 			isa = PBXGroup;
 			children = (
+				FE20CA1926A51ADC00B68B26 /* Networking */,
+				FE20CA1626A51A7D00B68B26 /* Models */,
+				FE20CA1326A51A0A00B68B26 /* Controllers */,
+				FE20CA1226A51A0000B68B26 /* Storyboards */,
 				FE20C9E226A517F100B68B26 /* AppDelegate.swift */,
 				FE20C9E426A517F100B68B26 /* SceneDelegate.swift */,
-				FE20C9E626A517F100B68B26 /* ViewController.swift */,
-				FE20C9E826A517F100B68B26 /* Main.storyboard */,
 				FE20C9EB26A517F400B68B26 /* Assets.xcassets */,
 				FE20C9ED26A517F400B68B26 /* LaunchScreen.storyboard */,
 				FE20C9F026A517F400B68B26 /* Info.plist */,
@@ -126,6 +140,42 @@
 				FE20CA0626A517F500B68B26 /* Info.plist */,
 			);
 			path = DogsUITests;
+			sourceTree = "<group>";
+		};
+		FE20CA1226A51A0000B68B26 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FE20C9E826A517F100B68B26 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FE20CA1326A51A0A00B68B26 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FE20CA1426A51A1C00B68B26 /* DogTableViewController.swift */,
+				FE20CA2026A51C8200B68B26 /* BreedDetailsViewController.swift */,
+				FE20CA2226A51C9900B68B26 /* SubBreedDetailsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FE20CA1626A51A7D00B68B26 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FE20CA1726A51AA000B68B26 /* Breed.swift */,
+				FE20CA1C26A51B6600B68B26 /* BreedListResponse.swift */,
+				FE20CA1E26A51B7C00B68B26 /* DogImageResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FE20CA1926A51ADC00B68B26 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FE20CA1A26A51AE900B68B26 /* DogApi.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +308,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE20C9E726A517F100B68B26 /* ViewController.swift in Sources */,
+				FE20CA1526A51A1C00B68B26 /* DogTableViewController.swift in Sources */,
+				FE20CA2326A51C9900B68B26 /* SubBreedDetailsViewController.swift in Sources */,
 				FE20C9E326A517F100B68B26 /* AppDelegate.swift in Sources */,
+				FE20CA1D26A51B6600B68B26 /* BreedListResponse.swift in Sources */,
+				FE20CA1B26A51AE900B68B26 /* DogApi.swift in Sources */,
+				FE20CA1F26A51B7C00B68B26 /* DogImageResponse.swift in Sources */,
+				FE20CA1826A51AA000B68B26 /* Breed.swift in Sources */,
+				FE20CA2126A51C8200B68B26 /* BreedDetailsViewController.swift in Sources */,
 				FE20C9E526A517F100B68B26 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
